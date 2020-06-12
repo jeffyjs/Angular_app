@@ -1,0 +1,18 @@
+
+
+
+
+<h2>Add Details</h2>
+<!-- <button
+     class="btn btn-primary"
+     (click)="showSecrete = !showSecrete">Add Server
+</button> -->
+<button
+     class="btn btn-primary"
+     (click)="onToggleDetail()">Add Server
+</button>
+<p *ngIf="showSecrete">Secrete password : Jeff</p>
+<div *ngFor="let logitem of log; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'yellow'}"
+    [ngClass]="{'txt' : i >= 4}">
+    {{ logitem }}</div>

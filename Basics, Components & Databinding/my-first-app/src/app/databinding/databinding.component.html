@@ -1,0 +1,11 @@
+<h2>Add User</h2>
+<input type="text" class="form-control" [(ngModel)] = "userName">
+<p>{{userName}}</p>
+<button
+     class="btn btn-primary"
+     [disabled]="userName === ''" 
+     (click)="userName = ''">Reset User
+</button>
+<!-- === check the value
+      =     assign the value -->
+<p>{{userNameReset}}</p>
