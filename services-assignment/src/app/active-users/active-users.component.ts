@@ -12,6 +12,7 @@ export class ActiveUsersComponent implements OnInit{
   // @Output() userSetToInactive = new EventEmitter<number>();
 
   constructor( private userService: UserService){}
+  
   ngOnInit(){
     this.users =  this.userService.activeUsers;
   }
