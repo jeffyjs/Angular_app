@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
-import { Post } from './post.modal';
+import { Post } from './post.model';
 import { PostsService } from './posts.service';
 
 @Component({
@@ -50,6 +50,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.loadedPosts = posts;
       },
       error => {
+        this.isFetching = false;
         this.error = error.message;
         console.log(error);
       }
@@ -62,10 +63,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this.loadedPosts = [];
     });
   }
-
-  // onHandleError(){
-  //   this.error = null;
-  // }
+  
+  onHandleError(){
+    this.error = null;
+  }
 
   ngOnDestroy() {
     this.errorSub.unsubscribe();

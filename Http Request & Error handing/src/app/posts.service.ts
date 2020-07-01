@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
-import { Post } from './post.modal';
+import { Post } from './post.model';
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
@@ -15,7 +15,7 @@ export class PostsService {
     const postData: Post = { title: title, content: content };
     this.http
       .post<{ name: string }>(
-        'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
+        'https://http-request-6f89c.firebaseio.com/posts.json',
         postData
       )
       .subscribe(
@@ -31,7 +31,7 @@ export class PostsService {
   fetchPosts() {
     return this.http
       .get<{ [key: string]: Post }>(
-        'https://ng-complete-guide-c56d3.firebaseio.com/posts.json'
+        'https://http-request-6f89c.firebaseio.com/posts.json'
       )
       .pipe(
         map(responseData => {
@@ -52,7 +52,7 @@ export class PostsService {
 
   deletePosts() {
     return this.http.delete(
-      'https://ng-complete-guide-c56d3.firebaseio.com/posts.json'
+      'https://http-request-6f89c.firebaseio.com/posts.json'
     );
   }
 }
